@@ -40,6 +40,7 @@ var ViewPager = React.createClass({
     isLoop: PropTypes.bool,
     locked: PropTypes.bool,
     autoPlay: PropTypes.bool,
+	animatTime: PropTypes.number,
     animation: PropTypes.func,
     initialPage: PropTypes.number,
   },
@@ -161,9 +162,13 @@ var ViewPager = React.createClass({
 
   _startAutoPlay() {
     if (!this._autoPlayer) {
+	   const time = 5000,
+	   if(animatTime){
+		   time = animatTime,
+	   }
       this._autoPlayer = this.setInterval(
         () => {this.movePage(1);},
-        5000
+        time
       );
     }
   },
