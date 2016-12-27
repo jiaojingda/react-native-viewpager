@@ -163,8 +163,8 @@ var ViewPager = React.createClass({
   _startAutoPlay() {
     if (!this._autoPlayer) {
 	   const time = 5000,
-	   if(animatTime){
-		   time = animatTime,
+	   if(this.props.animatTime){
+		   time = this.props.animatTime,
 	   }
       this._autoPlayer = this.setInterval(
         () => {this.movePage(1);},
